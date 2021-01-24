@@ -1,0 +1,111 @@
+﻿@model AdminIndexViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+ 
+<div class="main__container">
+    <div class="main__title">
+        <div class="main__greeting">
+            <h1>Merhaba @@username</h1>
+            <p>Admin arayüzüne hoşgeldin.</p>
+        </div>
+    </div>
+    <div class="main__cards">
+        <div class="card">
+            <i class="fas fa-book fa-2x text-lightblue"></i>
+            <div class="card__inner">
+                <p class="text-primary-p">Toplam Kitap Sayısı</p>
+                <span class="font-bold text-title">@Model.SumBookofBooks</span>
+            </div>
+        </div>
+        <div class="card">
+            <i class="fa fa-eye fa-2x text-red"></i>
+            <div class="card__inner">
+                <p class="text-primary-p">Toplam Görüntülenme Sayısı</p>
+                <span class="font-bold text-title">@Model.SumDisplayedOfBooks</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="posts">
+    <div class="posts__left">
+        <div class="posts__left__title">
+            <div>
+                <h1>En Çok Görüntülenen Kitap</h1>
+                <p>Şuana kadar paylaşılan kitaplar arasından en çok görüntülenen kitapdır.</p>
+            </div>
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="posts__left__content">
+            @foreach (var item in Model.BooksForDisplayed)
+            {
+                <i class="fa fa-eye text-red"><span>@item.Displayed</span></i>
+                <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                    <img src="@Model.BookImagesForDisplayed.Find(c => c.BookId == item.Id).Path" />
+                    <h3>@item.Name</h3>
+                </a>
+
+            }
+
+        </div>
+    </div>
+    <div class="posts__right">
+        <div class="posts__right__title">
+            <div>
+                <h1>En Son Paylaşılan Kitaplar</h1>
+                <p>En son paylaşılan 4 kitap aşağıda gösterilecektir.</p>
+            </div>
+            <i class="fas fa-book"></i>
+        </div>
+        <div class="posts__right__cards">
+            @{ var cartCounter = 1;}
+            @foreach (var item in Model.BooksForDate)
+            {
+                @if (cartCounter == 1)
+                {
+                    <div class="card1">
+                        <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                            <img src="@Model.BookImagesForDate.Find(c => c.BookId == item.Id).Path" />
+                            <h3>@item.Name</h3>
+
+                        </a>
+                    </div>
+                }
+                else if (cartCounter == 2)
+                {
+                    <div class="card2">
+                        <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                            <img src="@Model.BookImagesForDate.Find(c => c.BookId == item.Id).Path" />
+                            <h3>@item.Name</h3>
+                        </a>
+                    </div>
+                }
+                else if (cartCounter == 3)
+                {
+                    <div class="card3">
+                        <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                            <img src="@Model.BookImagesForDate.Find(c => c.BookId == item.Id).Path" />
+                            <h3>@item.Name</h3>
+                        </a>
+                    </div>
+                }
+                else if (cartCounter == 4)
+                {
+                    <div class="card4">
+                        <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                            <img src="@Model.BookImagesForDate.Find(c => c.BookId == item.Id).Path" />
+                            <h3>@item.Name</h3>
+                        </a>
+                    </div>
+                }
+                cartCounter++;
+            }
+
+        </div>
+    </div>
+</div>
+
+
+

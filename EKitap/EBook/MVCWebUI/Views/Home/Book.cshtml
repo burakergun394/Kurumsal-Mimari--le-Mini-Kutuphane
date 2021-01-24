@@ -1,0 +1,80 @@
+﻿@model BookViewModel;
+@{
+    ViewData["Title"] = "Book";
+}
+<link href="~/css/bookpage.css" rel="stylesheet" media="screen" />
+
+<div class="book">
+    <div class="book-header">
+        <a href="">
+            @if (Model.BookImage.BookId == Model.Book.Id)
+            {
+                <img src="@Model.BookImage.Path" />
+            }
+            <h3>@Model.Book.Name</h3>
+        </a>
+        <p>@Model.Book.Date.ToShortDateString()</p>
+    </div>
+    <div class="book-author">
+        @foreach (var authors in Model.BookAuthorsList.FindAll(c => c.BookId == Model.Book.Id))
+        {
+            @foreach (var author in Model.Author.FindAll(c => c.Id == authors.AuthorId))
+            {
+                @if (author.Id == 1)
+                {
+                    <a>Kitabın yazarı eklenilmemiştir.</a>
+                }
+                else
+                {
+                    <a asp-action="Author" asp-controller="Home" asp-route-Id="@author.Id">@author.Name</a>
+                }
+            }
+        }
+    </div>
+    <div class="book-category">
+        @foreach (var categories in Model.BookCategoriesList.FindAll(c => c.BookId == Model.Book.Id))
+        {
+            @foreach (var category in Model.Categories.FindAll(c => c.Id == categories.CategoryId))
+            {
+                @if (category.Id == 1)
+                {
+                    <a>Kitabın kategorisi eklenilmemiştir.</a>
+                }
+                else
+                {
+                    <a asp-action="Category" asp-controller="Home" asp-route-Id="@category.Id">@category.Name</a>                }
+                }
+        }
+    </div>
+    <div class="book-text">
+        <p>
+            <span>"</span>
+            @Model.Book.Summary
+            <span>"</span>
+        </p>
+    </div>
+    <div class="book-links">
+        <a href="#">Link 1</a>
+        <a href="#">Link 2</a>
+        <a href="#">Link 3</a>
+        <a href="#">Link 3</a>
+        <a href="#">Lin2 3</a>
+    </div>
+</div>
+<div class="related-book">
+    <div class="title">İlginizi Çekebilecek Kitaplar</div>
+    <div class="area">
+        @foreach (var item in Model.RandomBook)
+        {
+            <div class="card-book">
+                <a asp-action="Book" asp-controller="Home" asp-route-id="@item.Id">
+                    <img src="@Model.RandomBooksImages.Find(c => c.BookId == item.Id).Path" />
+                    <h5>@item.Name<h5>
+                </a>
+            </div>
+        }
+
+
+    </div>
+</div>
+

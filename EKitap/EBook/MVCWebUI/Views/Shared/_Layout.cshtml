@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MVCWebUI</title>
+
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+
+
+    <link href="~/css/header.css" rel="stylesheet" media="screen" />
+    <link href="~/css/sidebar.css" rel="stylesheet" media="screen" />
+
+  
+
+</head>
+<body>
+    <header>
+        <nav id="navbar">
+            <div class="nav_icon">
+                <i class="fa fa-bars" id="navOpen" onclick="toggleNavbar()"></i>
+                <i class="fa fa-times" id="navClose" onclick="closeNavbar()"></i>
+            </div>
+            <div class="navbar__left">
+                <a class="nav-logo" asp-area="" asp-controller="Home" asp-action="Index">
+                    <h1><span>E</span> Kitap</h1>
+                </a>
+            </div>
+            <div class="navbar__middle">
+                <ul class="nav-links">
+                    <li class="active_link">
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home"></i>
+                            <span>Ana Sayfa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-book"></i>
+                            <span>Kategoriler</span>
+                            <i class="fas fa-arrow-circle-down"></i>
+                        </a>
+                        @await Component.InvokeAsync("MenuCategories")
+                    </li>
+               
+                </ul>
+            </div>
+            <div class="navbar__right">
+                <div class="nav-search-box">
+                    <input class="nav-search-text" type="text" name="" placeholder="Arama">
+                    <a class="nav-search-btn" href="#"><i class="fas fa-search"></i></a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <section>@RenderBody()</section>
+            <aside>@await Component.InvokeAsync("Sidebar")</aside>
+        </div>
+    </main>
+
+    <footer> </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/js/header.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

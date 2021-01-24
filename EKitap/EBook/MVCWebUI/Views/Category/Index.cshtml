@@ -1,0 +1,47 @@
+﻿@model CategoryListViewModel
+
+@{
+    ViewData["Title"] = "Index";    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+ 
+<h4 class="header">Kategori Listesi</h4>
+
+<hr />
+@if (Model.Categories.Count() == 0)
+{
+    <div class="alert alert-info">
+        Hiçbir kategori eklenilmedi. Kategori eklemek için <a asp-action="Add">bana tıkla.</a>
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped text-center">
+        <thead class="table table-dark">
+            <tr>
+                <th>Kategori Adı</th>
+                <th>Kategorideki Toplam Kitap Sayısı</th>
+                <th>Düzenle / Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Categories)
+            {
+                if (item.Id > 1)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>34</td>
+                        <td>
+                            <div class="td-links">
+                                <a asp-action="Update" asp-controller="Category" asp-route-Id="@item.Id" class="btn btn-primary text-uppercase">Düzenle</a>
+                                <a asp-action="Delete" asp-controller="Category" asp-route-Id="@item.Id" class="btn btn-danger text-uppercase">Sil</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}

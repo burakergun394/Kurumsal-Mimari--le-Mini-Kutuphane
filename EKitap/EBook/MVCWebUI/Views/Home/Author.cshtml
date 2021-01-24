@@ -1,0 +1,35 @@
+﻿@model HomeViewModel
+@{
+    ViewData["Title"] = "Author";
+}
+<link href="~/css/categorypage.css" rel="stylesheet" media="screen" />
+<div class="category-header">
+    @if (Model.Author.Id == Convert.ToInt32(ViewBag.AuthorId))
+    {
+        @if (Model.Author.Id == 1)
+        {
+            <a>Yazarı Eklenmeyen Kitaplar</a>
+        }
+        else
+        {
+            <a asp-action="Author" asp-controller="Home" asp-route-Id="@Model.Author.Id">
+                @Model.Author.Name  Adlı Yazarın Kitapları
+            </a>
+        }
+    }
+</div>
+<div class="category-page">
+    @foreach (var item in Model.Books)
+    {
+        <div class="category-card-book">
+            <div class="category-card-book-detail">
+                <a asp-action="Book" asp-controller="Home" asp-route-id="@item.Id">
+                    <img src="@Model.BookImages.Find(c => c.BookId == item.Id).Path" />
+                    <p>@item.Name</p>
+                </a>
+            </div>
+        </div>
+    }
+
+</div>
+

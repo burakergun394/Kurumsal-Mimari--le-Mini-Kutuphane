@@ -1,0 +1,258 @@
+﻿* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+main {
+    font-family: 'Rubik', sans-serif;
+    border-top: 5px solid #ECF0F1;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: .7em;
+    display: flex;
+}
+
+section {
+    width: 85%;
+    background-color: #ECF0F1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: .5em;
+    margin-right: 1em;
+}
+
+.category-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.category-page {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-card-book {
+    flex: 1 1 33%;
+}
+
+.category-header > a {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 2.5em;
+    color: #000000;
+    letter-spacing:1px;
+    font-weight: 700;
+}
+
+
+.category-card-book {
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5em;
+    margin-top: .5em;
+    transition: .3s;
+}
+
+    .category-card-book:hover {
+        opacity: .8;
+    }
+
+.category-card-book-detail {
+    margin-top: .5em;
+}
+
+    .category-card-book-detail > a {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+        .category-card-book-detail > a > img {
+            border-radius: 5px;
+            width: 125px;
+            height: 175px;
+        }
+
+        .category-card-book-detail > a > p {
+            margin-top: .3em;
+            font-size: .9em;
+            color: rgb(79, 98, 127);
+            text-align: center;
+            font-weight: 600;
+        }
+
+.category-card-book-author {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: .3em;
+    margin-top: .3em;
+}
+
+    .category-card-book-author > a {
+        font-size: .7em;
+        background-color: #d6580f;
+        color: #fff;
+        margin-top: .3em;
+        margin-right: .3em;
+        border-radius: 5px;
+        padding: .3em .5em;
+        transition: .3s;
+    }
+
+        .category-card-book-author > a:hover {
+            background-color: #fff;
+            color: #d6580f;
+            border: 1px solid #17202A;
+        }
+
+aside {
+    background-color: #ECF0F1;
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    border-radius: .5em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+    aside .sidebar__inner {
+        display: flex;
+        flex-direction: column;
+    }
+
+@media only screen and (max-width:1366px) {
+    section {
+        width: 80%;
+    }
+
+    aside {
+        width: 20%;
+    }
+
+    .category-header > a {
+        font-size: 1.5em;
+    }
+        .category-card-book-detail > a > img {
+        width: 90px;
+        height: 130px;
+    }
+
+    .category-card-book-detail > a > p {
+        font-size: .8em;
+    }
+}
+
+@media only screen and (max-width:1024px) {
+    section {
+        width: 75%;
+    }
+
+    aside {
+        width: 25%;
+    }
+
+    .category-header > a {
+        font-size:1.2em;
+    }
+        .category-card-book-detail > a > img {
+        width: 70px;
+        height: 110px;
+    }
+
+    .category-card-book-detail > a > p {
+        font-size: .7em;
+    }
+
+    .category-card-book-author > a {
+        font-size: .6em;
+    }
+}
+
+@media only screen and (max-width:720px) {
+    .category-header > a {
+        font-size : 1em;
+    }
+        section {
+        width: 70%;
+        margin-right: 1em;
+        margin-bottom: 1em;
+    }
+
+    aside {
+        display: flex;
+        width: 30%;
+    }
+
+    .category-card-book {
+        flex: 1 1 50%;
+    }
+}
+
+@media only screen and (max-width:540px) {
+
+    .container {
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    section {
+        margin-right: 0;
+        margin-top: 1em;
+        width: 80%;
+    }
+
+    aside {
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+    }
+
+    .category-card-book {
+        flex: 1 1 46.6%;
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: .5em;
+    }
+
+    .category-card-book-detail {
+        margin-top: .7em;
+    }
+
+    .category-card-book-author {
+        margin-bottom: .7em;
+    }
+}
+
+@media only screen and (max-width:320px) {
+    aside {
+        display: flex;
+        flex-direction: c;
+    }
+}

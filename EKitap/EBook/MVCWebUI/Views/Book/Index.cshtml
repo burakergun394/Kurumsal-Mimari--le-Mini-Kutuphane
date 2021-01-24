@@ -1,0 +1,110 @@
+﻿@model BookListViewModel
+
+@{
+    ViewData["Title"] = "Index";    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<link href="~/css/imagepreview.css" rel="stylesheet" />
+
+
+
+<h4 class="header">Kitap Listesi</h4>
+<hr />
+
+@if (Model.Books.Count() == 0)
+{
+    <div class="alert alert-info">
+        Hiçbir kitap eklenilmedi. Kitap eklemek için <a asp-action="Add">bana tıkla.</a>
+    </div>
+}
+else
+{
+    <table class="table table-bordered table-striped text-center">
+        <thead class="table table-dark">
+            <tr>
+                <th>Kitap Adı</th>
+                <th>Kitap Kategori</th>
+                <th>Yazar Adı</th>
+                <th>Resim Önizle</th>
+                <th>Yüklenme Tarihi</th>
+                <th>Düzenle / Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                var authorIX = 0;
+                var categoryIX = 0;
+                var imageIX = 0;
+            }
+            @foreach (var item in Model.Books)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>
+                        @if (Model.BookCategoryDetails[categoryIX].BookId == item.Id)
+                        {
+                            if (Model.BookCategoryDetails[categoryIX].CategoryName == "KategoriSeciniz")
+                            {
+                                <span>Kitabın kategorisi bulunmamaktadır.</span>
+                            }
+                            else
+                            {
+                                <span>@Model.BookCategoryDetails[categoryIX].CategoryName</span>
+                            }
+                            categoryIX++;
+                        }
+                        else
+                        {
+                            <span>Kitabın kategorisi bulunmamaktadır.</span>
+                        }
+                    </td>
+                    <td>
+                        @if (Model.BookAuthorDetails[authorIX].BookId == item.Id)
+                        {
+                            if (Model.BookAuthorDetails[authorIX].AuthorName == "YazarSeciniz")
+                            {
+                                <span>Kitabın yazarı bulunmamaktadır.</span>
+                            }
+                            else
+                            {
+                                <span>@Model.BookAuthorDetails[authorIX].AuthorName</span>
+                            }
+
+                            authorIX++;
+                        }
+                        else
+                        {
+                            <span>Kitabın yazarı bulunmamaktadır.</span>
+                        }
+                    </td>
+                    <td>
+                        @if (Model.BookImages[imageIX].BookId == item.Id)
+                        {
+                            <img src="@Model.BookImages[imageIX].Path" style="width:75px;height:75px;cursor:pointer" onclick="onClick(this)" class="modal-hover-opacity">
+                            
+
+                            imageIX++;
+                        }
+                    </td>
+                    <td>@item.Date.ToShortDateString()</td>
+                    <td>
+                        <div class="td-links">
+                            <a asp-action="Update" asp-controller="Book" asp-route-Id="@item.Id" class="btn btn-primary text-uppercase">Düzenle</a>
+                            <a asp-action="Delete" asp-controller="Book" asp-route-Id="@item.Id" class="btn btn-danger text-uppercase">Sil</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<div id="modal01" class="modal" onclick="this.style.display='none'">
+    <span class="close">&times;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+    <div class="modal-content">
+        <img id="img01" style="max-width:100%">
+    </div>
+</div>
+<script src="~/js/imagepreview.js"></script>
+
+

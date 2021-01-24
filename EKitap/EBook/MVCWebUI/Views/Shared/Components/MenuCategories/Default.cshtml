@@ -1,0 +1,8 @@
+﻿@model CategoryListViewModel
+
+    <ul class="dropdown-nav-links">
+        @foreach (var item in Model.Categories)
+        {
+            <li><a asp-action="Category" asp-controller="Home" asp-route-id="@item.Id">@item.Name</a></li>
+        }
+    </ul>

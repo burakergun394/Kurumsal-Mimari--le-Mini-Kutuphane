@@ -1,0 +1,27 @@
+﻿@model CategoryViewModel
+
+@{
+    ViewData["Title"] = "Update"; Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+<h4 class="header">Düzenle</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Category.Name">Kategori Adı</label>
+                <input asp-for="Category.Name" type="text" class="form-control" placeholder="Kategori adını giriniz...">
+            </div>
+            <input type="hidden" asp-for="Category.Id" />
+            <input type="hidden" asp-for="Category.NormalizedName" />
+            <div class="form-group">
+                <input type="submit" value="KAYDET" class="btn btn-primary btn-block" />
+            </div>
+        </form>
+    </div>
+</div>

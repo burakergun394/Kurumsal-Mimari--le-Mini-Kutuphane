@@ -1,0 +1,1 @@
+Merhabalar arkadaşlar, veritabanını EKitap.bak dosyası üzerinden yükleyebilirsiniz.

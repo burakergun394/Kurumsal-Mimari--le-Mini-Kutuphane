@@ -1,0 +1,46 @@
+﻿@model HomeViewModel
+
+<div class="sidebar__inner">
+    <div class="sidebar__most__read__books">
+        <div class="sidebar__title">
+            <h3>En Çok Okunan 5 Kitap</h3>
+        </div>
+        <div class="sidebar__book__details">
+            @{ var countDisplayed = 1;}
+            @foreach (var item in Model.BooksByDisplayed)
+            {
+                <li class="sidebar__book__detail">
+                    <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                        <p>@countDisplayed</p>
+                        <img src="@ViewBag.BookByDisplayedImages[countDisplayed - 1].Path" />
+                        <div class="card-book-right">
+                            <h6 class="card-book-title">@item.Name</h6>
+                        </div>
+                    </a>
+                </li>
+                countDisplayed++;
+            }
+        </div>
+    </div>
+</div>
+<div class="sidebar__last__books">
+    <div class="sidebar__title">
+        <h3>En Son Eklenen 3 Kitap</h3>
+    </div>
+    <div class="sidebar__book__details">
+        @{ var countDate = 1;}
+        @foreach (var item in Model.BooksByDate)
+        {
+        <li class="sidebar__book__detail">
+            <a asp-action="Book" asp-controller="Home" asp-route-Id="@item.Id">
+                <p>@countDate</p>
+                <img src="@ViewBag.BookByDateImages[countDate - 1].Path" />
+                <div class="card-book-right">
+                    <h6 class="card-book-title">@item.Name</h6>
+                </div>
+            </a>
+        </li>
+            countDate++;
+        }
+    </div>
+</div>

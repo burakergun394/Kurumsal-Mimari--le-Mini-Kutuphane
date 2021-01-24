@@ -1,0 +1,13 @@
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\DataAccess.deps.json
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\DataAccess.dll
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfoInputs.cache
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.AssemblyInfo.cs
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.csprojAssemblyReference.cache
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\DataAccess.pdb
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\Core.dll
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\Entities.dll
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\Entities.pdb
+D:\PROJELER\Site\EKitap\EBook\DataAccess\bin\Debug\netstandard2.0\Core.pdb
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.csproj.CopyComplete
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.dll
+D:\PROJELER\Site\EKitap\EBook\DataAccess\obj\Debug\netstandard2.0\DataAccess.pdb

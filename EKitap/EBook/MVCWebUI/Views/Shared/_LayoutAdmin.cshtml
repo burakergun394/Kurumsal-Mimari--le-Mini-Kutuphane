@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+    <link href="~/css/admin/home.css" rel="stylesheet" />
+    <link href="~/css/admin/menu.css" rel="stylesheet" />
+    <link href="~/css/admin/common.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="nav_icon" onclick="toggleSidebar()">
+                <i class="fa fa-bars"></i>
+            </div>
+            <div class="navbar__left">
+                <a asp-action="Index" asp-controller="Home">Site</a>
+                <a asp-action="Index" asp-controller="Admin" class="active_link">Admin</a>
+            </div>
+            <div class="navbar__right">
+                <a href="#">
+                    <i class="fa fa-power-off"></i>
+                    <span>Çıkış Yap</span>
+                </a>
+            </div>
+        </nav>
+        <main>
+            @RenderBody()
+        </main>
+        <aside id="sidebar">
+            <div class="sidebar__title">
+                <a asp-action="Index" asp-controller="Home">E-KİTAP</a>
+                <i class="fa fa-times" id="sidebarIcon" onclick="closeSidebar()"></i>
+            </div>
+            <div class="sidebar__menu">
+                <div class="sidebar__link">
+                    <a asp-action="Index" asp-controller="Home">
+                        Dashboard<i class="fa fa-home"></i>
+                    </a>
+                </div>
+                <h2>ADMIN</h2>
+                <div class="sidebar__link">
+                    <a asp-action="Index" asp-controller="Book" class="hover">
+                        Kitap
+                        <i class="fas fa-arrow-circle-down"></i>
+                    </a>
+                    <ul>
+                        <a asp-action="Index" asp-controller="Book">Kitap Listesi</a>
+                        <a asp-action="Add" asp-controller="Book">Kitap Ekle</a>
+                    </ul>
+                </div>
+                <div class="sidebar__link">
+                    <a asp-action="Index" asp-controller="Category">
+                        Kategoriler
+                        <i class="fas fa-arrow-circle-down"></i>
+                    </a>
+                    <ul>
+                        <a asp-action="Index" asp-controller="Category">Kategori Listesi</a>
+                        <a asp-action="Add" asp-controller="Category">Kategori Ekle</a>
+                    </ul>
+                </div>
+                <div class="sidebar__link">
+                    <a asp-action="Index" asp-controller="Author">
+                        Yazar
+                        <i class="fas fa-arrow-circle-down"></i>
+                    </a>
+                    <ul>
+                        <a asp-action="Index" asp-controller="Author">Yazar Listesi</a>
+                        <a asp-action="Add" asp-controller="Author">Yazar Ekle</a>
+                    </ul>
+                </div>
+                <div class="sidebar__logout">
+                    <i class="fa fa-power-off"></i>
+                    <a href="#">Çıkış Yap</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+    <script src="~/js/admin/home.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+</body>
+</html>

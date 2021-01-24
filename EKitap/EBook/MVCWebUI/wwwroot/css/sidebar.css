@@ -1,0 +1,186 @@
+﻿* {
+    padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+    a:hover {
+        text-decoration: none;
+    }
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+.sidebar__inner {
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__most__read__books {
+    margin-bottom: 1em;
+}
+
+.sidebar__title {
+    text-align: center;
+    font-size: .8em;
+    margin-bottom: .3em;
+    padding: .6em .6em;
+    border-radius: 1em / .5em;
+}
+
+.sidebar__most__read__books > .sidebar__title {
+    color: #fff;
+    background-color: #d6580f;
+}
+
+.sidebar__last__books > .sidebar__title {
+    background-color: #17202A;
+    color: #ffffff;
+}
+
+.sidebar__book__detail {
+    display: flex;
+}
+
+    .sidebar__book__detail > a {
+        display: flex;
+        margin: .3em .1em;
+    }
+
+        .sidebar__book__detail > a > p {
+            border-top-left-radius: .5em;
+            border-bottom-left-radius: .5em;
+            padding: .2em .2em;
+            display: flex;
+            font-weight: 700;
+            align-items: center;
+        }
+
+.sidebar__most__read__books .sidebar__book__detail > a > p {
+    color: #fff;
+    background-color: #d6580f;
+}
+
+.sidebar__last__books .sidebar__book__detail > a > p {
+    background-color: #17202A;
+    color: #fff;
+}
+
+.sidebar__book__detail > a > img {
+    width: 65px;
+    height: 90px;
+    border-top-right-radius: .5em;
+    border-bottom-right-radius: .5em;
+    margin: 0;
+}
+
+.card-book-title {
+    color: black;
+    font-size: 1em;
+    margin-left: .3em;
+    margin-top: .3em;
+}
+
+@media only screen and (max-width:1366px) {
+
+    .sidebar__title {
+        font-size: .7em;
+    }
+
+    .sidebar__book__detail > a > p {
+        font-size: .8em;
+    }
+
+    .card-book-title {
+        font-size: .7em;
+    }
+}
+
+@media only screen and (max-width:1024px) {
+
+    .sidebar__title {
+        font-size: .7em;
+    }
+
+    .sidebar__book__detail > a > img {
+        width: 50px;
+        height: 80px;
+    }
+
+    .sidebar__book__detail > a > p {
+        font-size: .8em;
+    }
+
+    .card-book-title {
+        font-size: .8em;
+    }
+}
+
+@media only screen and (max-width:720px) {
+
+    .sidebar__most__read__books {
+        margin-right: .5em;
+    }
+
+    .card-book {
+        flex: 1 1 50%;
+    }
+
+    .sidebar__title {
+        font-size: .6em;
+    }
+
+    .card-book-title {
+        font-size: .7em;
+    }
+}
+
+@media only screen and (max-width:540px) {
+
+    .sidebar__title {
+        font-size: .5em;
+    }
+
+    .sidebar__book__detail > a > img {
+        width: 50px;
+        height: 80px;
+    }
+
+    .sidebar__book__detail > a > p {
+        font-size: .7em;
+    }
+
+    .card-book-title {
+        font-size: .7em;
+    }
+}
+
+@media only screen and (max-width:320px) {
+
+    .card-book:nth-child(odd) {
+        border-top: 1px solid #d6580f;
+        border-bottom: 1px solid #d6580f;
+        border-radius: 1em / 5em;
+    }
+
+    .card-book:nth-child(even) {
+        border-top: 1px solid #d6580f;
+        border-bottom: 1px solid #d6580f;
+        border-radius: 1em / 5em;
+    }
+
+    .card-book:first-child {
+        border-top: none;
+    }
+
+    .card-book:last-child {
+        border-bottom: none;
+    }
+}

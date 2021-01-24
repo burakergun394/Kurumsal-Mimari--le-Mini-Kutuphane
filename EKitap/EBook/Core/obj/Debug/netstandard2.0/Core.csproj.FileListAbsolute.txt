@@ -1,0 +1,8 @@
+D:\PROJELER\Site\EKitap\EBook\Core\bin\Debug\netstandard2.0\Core.deps.json
+D:\PROJELER\Site\EKitap\EBook\Core\bin\Debug\netstandard2.0\Core.dll
+D:\PROJELER\Site\EKitap\EBook\Core\bin\Debug\netstandard2.0\Core.pdb
+D:\PROJELER\Site\EKitap\EBook\Core\obj\Debug\netstandard2.0\Core.csprojAssemblyReference.cache
+D:\PROJELER\Site\EKitap\EBook\Core\obj\Debug\netstandard2.0\Core.AssemblyInfoInputs.cache
+D:\PROJELER\Site\EKitap\EBook\Core\obj\Debug\netstandard2.0\Core.AssemblyInfo.cs
+D:\PROJELER\Site\EKitap\EBook\Core\obj\Debug\netstandard2.0\Core.dll
+D:\PROJELER\Site\EKitap\EBook\Core\obj\Debug\netstandard2.0\Core.pdb

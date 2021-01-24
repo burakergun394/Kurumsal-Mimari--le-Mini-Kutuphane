@@ -1,0 +1,46 @@
+﻿@model AuthorListViewModel
+
+@{
+    ViewData["Title"] = "Index"; Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+}
+
+
+<h4 class="header">Yazar Listesi</h4>
+<hr />
+@if (Model.Authors.Count() == 0)
+{
+    <div class="alert-info">
+        Hiçbir yazar eklenilmedi. Yazar eklemek için <a asp-action="Add">bana tıkla.</a>
+    </div>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Yazar Adı</th>
+                <th>Yazarın Kitap Sayısı</th>
+                <th>Düzenle / Sil</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Authors)
+            {
+                if (item.Id > 1)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>34</td>
+                        <td>
+                            <div class="td-links">
+                                <a asp-action="Update" asp-controller="Author" asp-route-Id="@item.Id" class="btn-primary">Düzenle</a>
+                                <a asp-action="Delete" asp-controller="Author" asp-route-Id="@item.Id" class="btn-danger">Sil</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+}
